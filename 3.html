@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Example</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .content {
+            margin-left: 20px;
+            padding: 20px;
+            background-color: lightblue;
+            transition: transform 0.5s ease;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .content.closed {
+            transform: translateX(-100%);
+        }
+        .image img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image" onclick="toggleDiv()"> 
+            <img src="image.jpg" alt="Image">
+        </div>
+        <div class="content" id="content">
+            <button class="close-btn" onclick="closeDiv()">x</button>
+            <p>This is some content next to the image.</p>
+        </div>
+    </div>
+
+    <script>
+        const contentDiv = document.getElementById("content");
+        function toggleDiv() {
+            contentDiv.classList.toggle("closed");
+        }
+        function closeDiv() {
+            contentDiv.classList.add("closed");
+        }
+    </script>
+
+</body>
+</html>
